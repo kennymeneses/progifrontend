@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { defineComponent, ref, onMounted } from 'vue';
 import { apiService } from './../services/apiService';
-import { CarCostCalculationRequest } from './../commons/requests';
+import type { CarCostCalculationRequest } from './../commons/requests';
+import type { CarCostCalculationResponse } from '@/commons/responses';
 
  
 let request : CarCostCalculationRequest = {
@@ -9,9 +10,17 @@ let request : CarCostCalculationRequest = {
   type: 0
 }
 
-let response = await apiService.RetrieveTotalCost(request);
+// let response = await apiService.RetrieveTotalCost(request);
+// console.log(response);
+let response : CarCostCalculationResponse;
 
-console.log(response);
+onMounted(async () => {
+  response= await apiService.RetrieveTotalCost(request);
+  //console.log(response);
+});
+
+
+
 
 defineProps<{
   msg: string

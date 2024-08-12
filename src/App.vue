@@ -1,22 +1,28 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import BidCalculation from './components/BidCalculation.vue';
 </script>
 
 <template>
-  <header>
+  <BidCalculation/>
+
+
+
+  <!-- <header>
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
-      <HelloWorld msg="Progi is waiting for you!" />
-
+      <Suspense>
+        <HelloWorld msg="Progi is waiting for you!"/>
+      </Suspense>
+      <BidCalculation/>
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
       </nav>
     </div>
     
-  </header>
+  </header> -->
 
   <RouterView />
 </template>
