@@ -1,4 +1,4 @@
-# frontend
+# Progi - Bid Calculation Tool Frontend - Code Challenge
 
 This template should help get you started developing with Vue 3 in Vite.
 

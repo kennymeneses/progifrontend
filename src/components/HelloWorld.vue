@@ -1,4 +1,18 @@
 <script setup lang="ts">
+import { defineComponent, ref, onMounted } from 'vue';
+import { apiService } from './../services/apiService';
+import { CarCostCalculationRequest } from './../commons/requests';
+
+ 
+let request : CarCostCalculationRequest = {
+  carCost : 1100,
+  type: 0
+}
+
+let response = await apiService.RetrieveTotalCost(request);
+
+console.log(response);
+
 defineProps<{
   msg: string
 }>()
