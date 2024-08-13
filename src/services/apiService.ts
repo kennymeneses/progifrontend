@@ -1,8 +1,9 @@
+import { baseURl } from '@/commons/ constants';
 import type { CarCostCalculationRequest } from './../commons/requests';
 import type { CarCostCalculationResponse } from './../commons/responses';
 
 const postRequest = async (endpoint: string, body: any): Promise<any> => {
-    const response = await fetch(`https://localhost:7000/api/v1/${endpoint}`, {
+    const response = await fetch(`${baseURl}${endpoint}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

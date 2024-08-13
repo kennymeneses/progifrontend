@@ -4,7 +4,9 @@ import { apiService } from './../services/apiService';
 import type { CarCostCalculationRequest } from '@/commons/requests';
 import type { CarCostCalculationResponse } from '@/commons/responses';
 import { VehicleType } from '@/commons/enums';
-import { AssociationFeeValue, BasicBuyeeFeeLabelValue, CommonEnumValue, CommonType, CommonTypeValue, CurrencySign, InputDefaultMessage, InvalidInputMessage, LuxuryType, LuxuryTypeValue, MainTitle, SelectOptionMessage, SpecialFeeValue, StorageFee, StorageLabelValue, TotalPriceLabelValue } from '@/commons/ constants';
+import { AssociationFeeValue, BasicBuyeeFeeLabelValue, CommonEnumValue, CommonType, CommonTypeValue, CurrencySign,
+         InputDefaultMessage, InvalidInputMessage, LuxuryType, LuxuryTypeValue, MainTitle, minAcceptableCarCost, SelectOptionMessage,
+         SpecialFeeValue, StorageFee, StorageLabelValue, TotalPriceLabelValue } from '@/commons/ constants';
 
 
 const emit = defineEmits<{
@@ -16,15 +18,14 @@ const options = [
   { value: LuxuryTypeValue, inputText: LuxuryType }
 ];
 
-
 let selected = ref<string | number>(''); 
 let inputText = ref<number | null>(null);
 
 
-let totalCalculated = ref<number>();
-let specialFee = ref<number>();
-let associationFee = ref<number>();
-let basicFee = ref<number>();
+let totalCalculated = ref<string>();
+let specialFee = ref<string>();
+let associationFee = ref<string>();
+let basicFee = ref<string>();
 let storageFixedFee = ref<string>();
 
 let messageSelect = SelectOptionMessage;
@@ -42,7 +43,6 @@ let response : CarCostCalculationResponse;
 
 function emitChange() {
   emit('update:modelValue', selected.value);
-  console.log(selected.value);
 }
 
 function debounce(func: Function, wait: number) {
@@ -56,8 +56,6 @@ function debounce(func: Function, wait: number) {
 const debouncedRequestBid = debounce(() => {
   if (selected.value !== '' && inputText.value !== null && inputText.value >= 0)
   {
-    console.log(selected.value);
-    console.log(inputText.value);
     RequestBid();
   }
 }, 1000);
@@ -77,19 +75,17 @@ async function RequestBid() {
     type: selected.value.toString() == CommonEnumValue ? VehicleType.Common : VehicleType.Luxury
     }
 
-    response= await apiService.RetrieveTotalCost(request);
+    response = await apiService.RetrieveTotalCost(request);
 
-    specialFee.value = response.sellerSpecialFee;
-    associationFee.value = response.associationFee;
-    basicFee.value = response.basicBuyerFee;
-    totalCalculated.value = response.total;
-    storageFixedFee.value = StorageFee;
-
-    console.log(response);
+    specialFee.value = response.sellerSpecialFee.toFixed(2);
+    associationFee.value = response.associationFee.toFixed(2);
+    basicFee.value = response.basicBuyerFee.toFixed(2);
+    totalCalculated.value = response.total.toFixed(2);
+    storageFixedFee.value = StorageFee.toFixed(2);
 }
 
 const validateInput = () => {
-    errorMessage.value = (inputText.value !== null && inputText.value < 1) ? InvalidInputMessage : null;
+    errorMessage.value = (inputText.value !== null && inputText.value < minAcceptableCarCost) ? InvalidInputMessage : null;
 };
 
 </script>
@@ -132,9 +128,6 @@ const validateInput = () => {
                 </div>
             </div>
         </div>
-
-
-
     </div>
 </template>
 
