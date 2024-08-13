@@ -7,7 +7,7 @@
 ## To Run this projec: 
 
 4. Make sure you have node.js 20.0.0 version or superior
-5. Execute `npm install`
+5. Execute `npm install` in the root directory
 6. Execute `npm run dev` in the root directory 
 7. Use this url in your web browser `http://localhost:5173/`
 
