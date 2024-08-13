@@ -1,7 +1,7 @@
 # Progi - Bid Calculation Tool Frontend - Code Challenge
 
 1. Before to run this projecto You will need to clone and run `Bid Calculation Toll Backend`
-2. You can clon the backend project from here `https://github.com/kennymeneses/progibackend`
+2. Clone the backend project here `https://github.com/kennymeneses/progibackend`
 3. Navigate to `src/BidCalculation.Api` directory and execute this command `dotnet run --launch-profile https`
 
 
