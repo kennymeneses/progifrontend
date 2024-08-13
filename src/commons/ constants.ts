@@ -1,0 +1,17 @@
+export const MainTitle : string = 'Bid Calculation Tool';
+export const CurrencySign : string = '$';
+export const StorageFee: string = '100.00';
+export const EmitParameter : string = 'update:modelValue';
+export const InvalidInputMessage: string = 'The value must be greater than or equal to 1.';
+export const CommonEnumValue: string = '0';
+export const SelectOptionMessage : string = 'Select the type of car.'
+export const InputDefaultMessage : string = 'Enter the price of the car';
+export const LuxuryType : string = 'Luxury';
+export const CommonType : string = 'Common';
+export const CommonTypeValue : number = 0;
+export const LuxuryTypeValue : number = 1;
+export const TotalPriceLabelValue : string = 'Total cost:';
+export const BasicBuyeeFeeLabelValue : string = 'Basic Buyee fee:';
+export const SpecialFeeValue : string = 'Special fee:';
+export const AssociationFeeValue : string = 'Association fee:';
+export const StorageLabelValue : string = 'Storage fee:';
