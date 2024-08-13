@@ -1,3 +1,4 @@
+export const baseURl : string = 'https://localhost:7000/api/v1/';
 export const MainTitle : string = 'Bid Calculation Tool';
 export const CurrencySign : string = '$';
 export const StorageFee: number = 100;
@@ -16,4 +17,5 @@ export const BasicBuyeeFeeLabelValue : string = 'Basic Buyee fee:';
 export const SpecialFeeValue : string = 'Special fee:';
 export const AssociationFeeValue : string = 'Association fee:';
 export const StorageLabelValue : string = 'Storage fee:';
-export const baseURl : string = 'https://localhost:7000/api/v1/';
+export const ValidCarCostParam : number = 1000;
+export const ValidCarTypeParam : number = 0  
