@@ -333,6 +333,14 @@ const validateInput = () => {
         width: 100%;
         flex-direction: column;
     }
+
+    .input-content{
+        width: 100%;
+    }
+
+    .input-content input{
+        width: 40%;
+    }
 }
 
 </style>
